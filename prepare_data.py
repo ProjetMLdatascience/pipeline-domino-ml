@@ -15,7 +15,8 @@ print("==========================================================")
 
 # TÂCHE 1 : CHARGEMENT & ANALYSE EXPLORATOIRE (EDA)
 # Chargement du fichier réseau [cite: 88]
-df = pd.read_csv("reseau.csv", sep=";")
+df = pd.read_csv("reseau.csv", sep=";", skipinitialspace=True)
+df.columns = df.columns.str.strip()  # Supprime les espaces résiduels dans les noms de colonnes
 
 print(f"\n[INFO] Dataset chargé : {df.shape[0]} lignes et {df.shape[1]} colonnes.")
 print(f"Distribution brute des classes : \n{df['label'].value_counts()}") 
